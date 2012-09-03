@@ -1,0 +1,114 @@
+\name{geom_subplot2d}
+\alias{geom_subplot2d}
+\title{Bin data and visualize with a grid of subplots.}
+\usage{
+  geom_subplot2d(mapping, bins = 10, binwidth = NULL,
+  breaks = NULL, data = waiver(), x_scale = identity,
+  y_scale = identity, width.adjust = 0.95, height.adjust =
+  0.95, position = "identity", reference = ref_box(),
+  ply.aes = TRUE, .ref = FALSE)
+}
+\arguments{
+  \item{mapping}{An aesthetic mapping, usually constructed
+  with \code{\link[ggplot2]{aes}}. This mapping should
+  contain x, y, and subplot aesthetics. All other
+  aesthetics will be ignored - consider placing them in the
+  subplot aesthetics's mapping instead. The subplot
+  aesthetic should be a layer or plot specification. For
+  example, the subplot aesthetic could be the output of
+  \code{\link[ggplot2]{qplot}} or
+  \code{\link[ggplot2]{geom_point}}. Any data argument in
+  the subplot aesthetic will be ignored, the subplot
+  mapping will be applied to the data inherited by the
+  geom_subplot2d layer.}
+
+  \item{bins}{numeric. The number of bins to divide each
+  major axis into. If bins is of length 2, the first number
+  will be applied to the x axis and the second to the y.
+  Defaults to 10.}
+
+  \item{binwidth}{numeric. The binwidth to use when
+  dividing the major x and y axes into bins. If set,
+  binwidth will override the bins argument. If binwidth is
+  of length 2, the first number will be applied to the x
+  axis and the second to the y. Defaults to NULL.}
+
+  \item{breaks}{a vector of breaks or a function from the
+  densityvis package (unpublished), such as
+  interval_breaks. breaks determines which breaks are used
+  to bin the x and y axes. If set, breaks will override the
+  bins and binwidth arguments. If breaks is a list, the
+  first element will be applied to the x axis and the
+  second to the y. Defaults to NULL.}
+
+  \item{data}{The dataframe the layer should map to.
+  geom_subplot2d inherits the global dataframe defined in
+  \code{\link[ggplot2]{ggplot}}.}
+
+  \item{x_scale}{function. The scaling to use for the x
+  axis within each glyph. If x_scale equals
+  \code{\link{identity}}(default), the x limits within each
+  glyph will correspond to the range of x across all
+  glyphs. This aids comparison because each glyph will use
+  the same scale. If x_scale equals \code{\link{free}},
+  each glyph will use its own x scale. The limits of this
+  scale will be set to the range of x values in that
+  glyph.}
+
+  \item{y_scale}{function. y_scale behaves the same as
+  x_scale but controls the scales for the y axis within
+  each glyph.}
+
+  \item{width.adjust}{numeric. The proportion of horizontal
+  space within a grid box that each subplot should occupy.
+  Used to control overlapping and appearance. Each subplot
+  is anchored to the bottom left corner of the grid box and
+  then spans the proportion of the box specified by width
+  adjust.}
+
+  \item{height.adjust}{numeric. The proportion of vertical
+  space within a grid box that each subplot should occupy.
+  Behaves the same as width.adjust.}
+
+  \item{position}{character. "identity"}
+
+  \item{reference}{function. Function used to create
+  reference objects for the embedded plots. If NULL, no
+  reference objects are used. Reference objects are plotted
+  on a layer beneath the subplots. They provide a
+  consistent frame of reference to aid comparisons across
+  subplots. Functions that create reference objects include
+  \code{\link{ref_box}}, \code{\link{ref_hline}}, and
+  \code{\link{ref_vline}}. By default, reference is set to
+  ref_box, which creates the familiar mesh pattern
+  associated with grids.}
+
+  \item{ply.aes}{logical. If TRUE (default) aesthetics are
+  calculated separately for each subplot, as with
+  \code{\link{ply_aes}}. If FALSE aesthetics are calculated
+  based on entire data set for the layer.}
+
+  \item{.ref}{internal argument used for plotting reference
+  objects.}
+}
+\value{
+  an object of class glayer
+}
+\description{
+  geom_subplot bins data into a two dimensional grid and
+  then visualizes the data within each bin with an embedded
+  subplot. Mappings, stat, and parameters are applied
+  consistently across subplots, but each subplot only uses
+  the data that falls withn its 2d bin.
+}
+\details{
+  Any variables in the data set may be used as x and y axes
+  to bin on. These 'major' x and y axes need not correspond
+  to the 'minor' x and y axes within each subplot. Minor x
+  and y axes are defined in the subplot aesthetic of
+  geom_subplot2d. To allow interpretation, the major axes
+  of a gridded layer should correspond to the x and y
+  aesthetics for any other (non - gridded) layers in the
+  plot.
+}
+

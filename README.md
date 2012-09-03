@@ -1,4 +1,4 @@
 ggsubplot
-=========
+======
 
-Embed subplots in ggplot2 graphics in R
+Embed subplots into ggplot2 graphics

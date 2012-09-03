@@ -1,0 +1,44 @@
+Package: ggsubplot
+Maintainer: Garrett Grolemund <grolemund@rice.edu>
+License: GPL
+Title: Explore complex data by embedding subplots within
+    plots.
+LazyData: true
+Type: Package
+Author: Garrett Grolemund <grolemund@rice.edu>, Hadley
+    Wickham <h.wickham@gmail.com>
+Description: ggsubplot makes it easy to embed customized
+    subplots within larger graphics. Subplots may be used
+    as a geom to explore interaction effects, spatial data,
+    and hierarchical data. Subplots can also be used to
+    explore big data without overplotting.
+Version: 0.1.0
+Imports:
+    ggplot2,
+    plyr,
+    proto,
+    grid,
+    scales,
+    stringr
+Depends:
+    methods,
+    R (>= 2.15)
+Collate:
+    'aesply.r'
+    'data.r'
+    'geom_coxcomb.r'
+    'geom_star.r'
+    'geom_subplot.r'
+    'geom_subplot2d.r'
+    'ggsubplot-class.r'
+    'ggsubplot_build.r'
+    'merge_overlaps.r'
+    'package.r'
+    'ply_aes.r'
+    'ref_box.r'
+    'rel-class.r'
+    'rescalers.r'
+    'sp_layer-class.r'
+    'sp_layer_build.r'
+    'util.r'
+    'geom_freqstar.r'
