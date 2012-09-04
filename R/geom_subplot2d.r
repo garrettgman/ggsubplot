@@ -62,6 +62,15 @@
 #' aesthetics are calculated based on entire data set for the layer.
 #' @param .ref internal argument used for plotting reference objects.
 #' @return an object of class glayer
+#' @examples
+#' \dontrun{
+#' ggplot(casualties) + 
+#' map_afghanistan +
+#' geom_subplot2d(aes(lon, lat, 
+#' subplot = geom_bar(aes(victim, ..count.., fill = victim))),
+#' bins = c(15,12), ref = NULL, width = rel(0.8)) +
+#' coord_map()
+#' }
 #' @export 
 geom_subplot2d <- function(mapping, bins = 10,  binwidth = NULL, breaks = NULL, 
   data = waiver(), x_scale = identity, y_scale = identity, width.adjust = 0.95, 

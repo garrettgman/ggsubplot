@@ -22,7 +22,21 @@
 #' @section Aesthetics
 #' geom_coxcomb understands the following aesthetics: x, y, colour, fill, size, 
 #' linetype, weight, and alpha.
+#' @examples
+#' \dontrun{## A single star
+#' one_nasa <- nasa[nasa$id == "1-1", ]
+#' ggplot(one_nasa) +
+#' geom_star(aes(x = 0, y = 0, r = surftemp, angle = date, 
+#' fill = mean(temperature)), r.zero = FALSE)
 #' 
+#' ## Stars in an embedded plot
+#' ggplot(nasa) + 
+#' map_americas +
+#' geom_subplot(aes(long, lat, group = id,
+#' subplot = geom_star(aes(x = 0, y = 0, r = surftemp, 
+#' angle = date, fill = mean(surftemp)), r.zero = FALSE))) +
+#' coord_map()
+#' }
 #' @export
 geom_star <- function(mapping = NULL, data = NULL, stat = "identity", 
   position = "identity", na.rm = FALSE, r.zero = TRUE, ...) { 

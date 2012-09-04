@@ -36,6 +36,13 @@
 #' are calculated based on entire data set for the layer.
 #' @param .ref internal argument used for plotting reference objects.
 #' @return an object of class sp_layer
+#' @examples
+#' \dontrun{ggplot(nasa) + 
+#' map_americas + 
+#' geom_subplot(aes(long, lat, group = id, 
+#'   subplot = geom_point(aes(surftemp, temperature), size = 1/4))) +
+#' coord_map()
+#' }
 #' @export
 geom_subplot <- function(mapping, width = rel(0.95), height = rel(0.95), 
   data = waiver(), x_scale = identity, y_scale = identity, 

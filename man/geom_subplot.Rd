@@ -73,4 +73,12 @@
 \description{
   Create a layer of embedded subplots
 }
+\examples{
+\dontrun{ggplot(nasa) +
+map_americas +
+geom_subplot(aes(long, lat, group = id,
+subplot = geom_point(aes(surftemp, temperature), size = 1/4))) +
+coord_map()
+}
+}
 

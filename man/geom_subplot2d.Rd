@@ -111,4 +111,14 @@
   aesthetics for any other (non - gridded) layers in the
   plot.
 }
+\examples{
+\dontrun{
+ggplot(casualties) +
+map_afghanistan +
+geom_subplot2d(aes(lon, lat,
+subplot = geom_bar(aes(victim, ..count.., fill = victim))),
+bins = c(15,12), ref = NULL, width = rel(0.8)) +
+coord_map()
+}
+}
 
