@@ -72,39 +72,39 @@ setMethod("rep", signature(x = "sp_layer"), function(x, ...){
 	stop("object of type 'sp_layer' is not subsettable")
 })
 
-#' @export
+#' @exportMethod "["
 setMethod("[", signature(x = "sp_layer"), 
 	function(x, i, j, ..., drop = TRUE) {
     	new("sp_layer", layer = x@layer[i])
 	}
 )
 
-#' @export
+#' @exportMethod "[<-"
 setMethod("[<-", signature(x = "sp_layer"), function(x, i, j, ..., value) {
   	x@layer[i] <- value
 	x
 })
 
 
-#' @export
+#' @exportMethod "$"
 setMethod("$", signature(x = "sp_layer"), function(x, name) {
 	slot(x, "layer")[[name]]
 })
 
-#' @export
+#' @exportMethod "$<-"
 setMethod("$<-", signature(x = "sp_layer"), function(x, name, value) {
 	slot(x, "layer")[[name]] <- value
 	x
 })
 
-#' @export
+#' @exportMethod "+"
 setMethod("+", signature(e1 = "ggplot", e2 = "sp_layer"), 
 	function(e1, e2) {
 		ggsubplot(e1 + e2@layer)
 	}
 )
 
-#' @export
+#' @exportMethod "+"
 setMethod("+", signature(e1 = "ggsubplot", e2 = "sp_layer"), 
 	function(e1, e2) {
 		ggsubplot(e1@.Data + e2@layer)

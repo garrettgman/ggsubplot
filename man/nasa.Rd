@@ -1,9 +1,10 @@
 \docType{data}
 \name{nasa}
 \alias{nasa}
-\title{Nasa data from 2006 expo}
+\title{Nasa data from the 2006 American Statistical Association Data Expo}
 \description{
-  Nasa data from 2006 expo
+  Nasa data from the 2006 American Statistical Association
+  Data Expo
 }
 \keyword{data}
 
