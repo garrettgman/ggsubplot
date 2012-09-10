@@ -3,7 +3,7 @@
 \title{Evaluate a list of expressions by group}
 \usage{
   eval.plyr(exprs, data = NULL, by = NULL, enclos = NULL,
-  try = FALSE)
+    try = FALSE)
 }
 \arguments{
   \item{exprs}{a list of expressions}

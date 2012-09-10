@@ -2,8 +2,8 @@
 \alias{ref_vline}
 \title{Vertical reference line glyph}
 \usage{
-  ref_vline(mapping = NULL, thickness = 0.2, fill =
-  "white", ...)
+  ref_vline(mapping = NULL, thickness = 0.2,
+    fill = "white", ...)
 }
 \arguments{
   \item{mapping}{An aesthetic mapping, usually constructed

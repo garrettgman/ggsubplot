@@ -1,7 +1,7 @@
 check_ggsubplot <- function(object) {
 	errors <- character()
-	if (!is(object@.Data, "ggplot")) {
-		msg <- "ggsubplot must be a ggplot object."
+	if (!is(object@.Data, "ggplot") & !is(object@.Data, "gg")) {
+		msg <- "ggsubplot must be a gg or ggplot object."
 		errors <- c(errors, msg)
 	}
 	if (length(errors) == 0) 
@@ -26,6 +26,14 @@ NULL
 #' @exportClass ggplot
 setOldClass(c("ggplot", "list"))
 
+#' gg S4 class
+#' 
+#' @name gg-class
+#' @aliases gg
+#'
+#' @exportClass gg
+setOldClass(c("gg", "ggplot"))
+
 #' ggsubplot class
 #'
 #' a ggsubplot object is a ggplot object that has been extended to include methods 
@@ -37,7 +45,7 @@ setOldClass(c("ggplot", "list"))
 #' @aliases show,ggsubplot-method
 #' @aliases print,ggsubplot-method
 #' @aliases show,ggsubplot-method
-setClass("ggsubplot", contains = c("ggplot"), validity = check_ggsubplot)
+setClass("ggsubplot", contains = c("gg", "ggplot"), validity = check_ggsubplot)
 
 #' @export
 setMethod("show", signature(object = "ggsubplot"), function(object){
@@ -73,9 +81,9 @@ print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
 #' objects have similar, but different print and build methods than ggplot2 
 #' objects.
 #' 
-#' @param ggplot a ggplot object
+#' @param ggplot a gg or ggplot object
 #' @export ggsubplot
 ggsubplot <- function(ggplot) {
-	new("ggsubplot", ggplot)
+	new("ggsubplot", .Data = ggplot)
 }
 

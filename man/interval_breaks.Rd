@@ -2,8 +2,8 @@
 \alias{interval_breaks}
 \title{Pick breaks for interval (1d) bins.}
 \usage{
-  interval_breaks(bins = 10, binwidth = NULL, origin =
-  NULL, range = NULL)
+  interval_breaks(bins = 10, binwidth = NULL,
+    origin = NULL, range = NULL)
 }
 \arguments{
   \item{bins}{Desired number of bins}

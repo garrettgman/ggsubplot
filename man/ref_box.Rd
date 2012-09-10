@@ -3,7 +3,7 @@
 \title{Reference box glyph}
 \usage{
   ref_box(mapping = NULL, fill = "grey90", color = "white",
-  ...)
+    ...)
 }
 \arguments{
   \item{mapping}{An aesthetic mapping, usually constructed

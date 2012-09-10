@@ -52,6 +52,7 @@ setOldClass(c("proto", "environment"))
 #' @aliases $,sp_layer-method
 #' @aliases $<-,sp_layer-method
 #' @aliases +,ggplot,sp_layer-method
+#' @aliases +,gg,sp_layer-method
 #' @aliases +,ggsubplot,sp_layer-method
 #' @aliases ggtransform,sp_layer-method
 setClass("sp_layer", representation(layer = "proto"), validity = check_sp_layer)
@@ -102,6 +103,13 @@ setMethod("+", signature(e1 = "ggplot", e2 = "sp_layer"),
 	function(e1, e2) {
 		ggsubplot(e1 + e2@layer)
 	}
+)
+
+#' @exportMethod "+"
+setMethod("+", signature(e1 = "gg", e2 = "sp_layer"), 
+  function(e1, e2) {
+    ggsubplot(e1 + e2@layer)
+  }
 )
 
 #' @exportMethod "+"

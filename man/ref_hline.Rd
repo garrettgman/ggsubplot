@@ -2,8 +2,8 @@
 \alias{ref_hline}
 \title{Horizontal reference line glyph}
 \usage{
-  ref_hline(mapping = NULL, thickness = 0.2, fill =
-  "white", ...)
+  ref_hline(mapping = NULL, thickness = 0.2,
+    fill = "white", ...)
 }
 \arguments{
   \item{mapping}{An aesthetic mapping, usually constructed

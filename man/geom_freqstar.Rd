@@ -3,7 +3,7 @@
 \title{Frequency Star glyphs}
 \usage{
   geom_freqstar(mapping = NULL, data = NULL, stat = "bin",
-  position = "identity", na.rm = FALSE, ...)
+    position = "identity", na.rm = FALSE, ...)
 }
 \arguments{
   \item{mapping}{The aesthetic mapping, usually constructed

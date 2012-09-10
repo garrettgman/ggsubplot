@@ -5,7 +5,7 @@
   ggsubplot(ggplot)
 }
 \arguments{
-  \item{ggplot}{a ggplot object}
+  \item{ggplot}{a gg or ggplot object}
 }
 \description{
   glyph_plot gives a ggplot object the S4 class

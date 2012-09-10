@@ -3,10 +3,10 @@
 \title{Bin data and visualize with a grid of subplots.}
 \usage{
   geom_subplot2d(mapping, bins = 10, binwidth = NULL,
-  breaks = NULL, data = waiver(), x_scale = identity,
-  y_scale = identity, width.adjust = 0.95, height.adjust =
-  0.95, position = "identity", reference = ref_box(),
-  ply.aes = TRUE, .ref = FALSE)
+    breaks = NULL, data = waiver(), x_scale = identity,
+    y_scale = identity, width.adjust = 0.95,
+    height.adjust = 0.95, position = "identity",
+    reference = ref_box(), ply.aes = TRUE, .ref = FALSE)
 }
 \arguments{
   \item{mapping}{An aesthetic mapping, usually constructed

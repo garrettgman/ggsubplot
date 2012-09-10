@@ -1,7 +1,7 @@
 \name{ggsubplot-class}
+\alias{ggsubplot-class}
 \alias{print,ggsubplot-method}
 \alias{show,ggsubplot-method}
-\alias{ggsubplot-class}
 \title{ggsubplot class}
 \description{
   a ggsubplot object is a ggplot object that has been

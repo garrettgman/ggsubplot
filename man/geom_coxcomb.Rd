@@ -3,7 +3,8 @@
 \title{Coxcomb glyphs}
 \usage{
   geom_coxcomb(mapping = NULL, data = NULL, stat = "bin",
-  position = "identity", npoints = 10, na.rm = FALSE, ...)
+    position = "identity", npoints = 10, na.rm = FALSE,
+    ...)
 }
 \arguments{
   \item{mapping}{The aesthetic mapping, usually constructed
