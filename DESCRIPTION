@@ -12,7 +12,7 @@ Description: ggsubplot makes it easy to embed customized
     as a geom to explore interaction effects, spatial data,
     and hierarchical data. Subplots can also be used to
     explore big data without overplotting.
-Version: 0.1.0
+Version: 0.3.0
 Imports:
     ggplot2,
     plyr,
