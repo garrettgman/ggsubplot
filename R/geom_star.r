@@ -5,7 +5,9 @@
 #' 
 #' @param mapping The aesthetic mapping, usually constructed with 
 #' \code{\link[ggplot2]{aes}}. Only needs to be set at the layer level if you 
-#' are overriding the plot defaults.
+#' are overriding the plot defaults. x and y will determine where the center 
+#' of the star should appear. r and angle will determine the polar coordinate 
+#' system for the star.
 #' @param data A layer specific dataset - only needed if you want to override 
 #' the plot defaults
 #' @param stat The statistical transformation to use for this layer.
@@ -48,7 +50,6 @@ geom_star <- function(mapping = NULL, data = NULL, stat = "identity",
 
 GeomStar <- proto::proto(ggplot2:::Geom, {
   objname <- "star"
-  
   # turn cartesian coordinates polar
   reparameterise <- function(., df, params) { 
     # scale x to be between 0 and 2*pi
@@ -75,6 +76,11 @@ GeomStar <- proto::proto(ggplot2:::Geom, {
       origin$theta <- 0
       origin$plot <- FALSE
       data$plot <- TRUE
+      
+      # remove missing points from plot 
+      # (otherwise each star will becaome separate polygons)
+      data$plot[is.na(data$r) | is.na(data$angle)] <- FALSE
+      
       rbind(data, origin)
     }
   

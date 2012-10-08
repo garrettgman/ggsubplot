@@ -9,7 +9,10 @@
 \arguments{
   \item{mapping}{The aesthetic mapping, usually constructed
   with \code{\link[ggplot2]{aes}}. Only needs to be set at
-  the layer level if you are overriding the plot defaults.}
+  the layer level if you are overriding the plot defaults.
+  x and y will determine where the center of the star
+  should appear. r and angle will determine the polar
+  coordinate system for the star.}
 
   \item{data}{A layer specific dataset - only needed if you
   want to override the plot defaults}
