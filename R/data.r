@@ -8,8 +8,8 @@ NULL
 #'
 #' The Afghan War Diary is distributed by the WikiLeaks organization and available 
 #' for download at http://www.wikileaks.org/wiki/Afghan_War_Diary,_2004-2010. Each 
-#' row of the data #' set corresponds to a single casualty (one person being injured 
-#' or killed). 
+#' row of the data set corresponds to a single casualty 
+#' (one person being injured or killed). 
 #' @name casualties
 #' @docType data
 #' @keywords data
