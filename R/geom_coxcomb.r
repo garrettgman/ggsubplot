@@ -176,7 +176,11 @@ coxcomb_sections <- function(mapping) {
   as.call(c(quote(interaction), sections))
 }
 
-# changes 2 * pi into 0
+#' changes 2 * pi into 0
+#' 
+#' @keywords internal
+#' @param vec a vector of angles
+#' @export
 zero_wrap <- function(vec){
   vec[vec > 6.2831] <- 0
   vec
