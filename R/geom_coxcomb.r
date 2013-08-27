@@ -86,7 +86,7 @@ GeomCoxcomb <- proto::proto(ggplot2:::Geom, {
     
     # create polygon points
     poly_curve <- function(df, npoints) {
-      non.pos <- setdiff(names(df), c(.x_aes, .y_aes, "count", "ndensity", 
+      non.pos <- setdiff(names(df), c(ggsubplot:::.x_aes, ggsubplot:::.y_aes, "count", "ndensity", 
         "ncount", "density"))
       theta <- seq(df$xmin, df$xmax, length = npoints)
       theta <- c(theta, theta[length(theta):1])
