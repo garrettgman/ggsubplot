@@ -176,7 +176,12 @@ coxcomb_sections <- function(mapping) {
   as.call(c(quote(interaction), sections))
 }
 
-# changes 2 * pi into 0
+#' Changes 2 pi to 0
+#'
+#' @keywords internal
+#' @param vec a vector of angles in radians 
+#' \code{\link[ggplot2]{aes}}
+#' @export
 zero_wrap <- function(vec){
   vec[vec > 6.2831] <- 0
   vec
