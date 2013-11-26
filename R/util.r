@@ -57,12 +57,12 @@ layer_clone <- function(layer) {
 
 #' @S3method layer_clone proto
 layer_clone.proto <- function(layer) {
-  ggplot2:::plot_clone(ggplot2::ggplot() + layer)$layers[[1]]
+  ("ggplot2" %:::% "plot_clone")(ggplot2::ggplot() + layer)$layers[[1]]
 }
 
 #' @S3method layer_clone sp_layer
 layer_clone.sp_layer <- function(layer) {
-  sp_layer(ggplot2:::plot_clone(ggplot2::ggplot() + layer)$layers[[1]])
+  sp_layer(("ggplot2" %:::% "plot_clone")(ggplot2::ggplot() + layer)$layers[[1]])
 }
 
 #' @S3method layer_clone list
@@ -88,4 +88,8 @@ null_omit <- function(lst) {
 my_cumsum <- function(vec) {
   vec[is.na(vec)] <- 0
   cumsum(vec)
+}
+
+"%:::%" <- function(p, f) {
+  get(f, envir = asNamespace(p))
 }

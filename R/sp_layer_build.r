@@ -20,7 +20,7 @@ sp_layer_build <- function(layer, plot) {
     stop("layer does not have embedded subplots")
   }
 
-  minimal <- ggplot2:::plot_clone(plot)
+  minimal <- ("ggplot2" %:::% "plot_clone")(plot)
   minimal$data <- ggplot2::waiver()
   minimal$scales$scales[which_x(minimal$scales$scales)] <- NULL
   minimal$scales$scales[which_y(minimal$scales$scales)] <- NULL
@@ -60,7 +60,7 @@ sp_layer_build <- function(layer, plot) {
   minor$plot$facet <- ggplot2::facet_null()
   minor$plot$scales$scales <- scales
   
-  ggplot2:::set_last_plot(plot)
+  ("ggplot2" %:::% "set_last_plot")(plot)
   
   minor
 }

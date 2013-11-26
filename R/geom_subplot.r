@@ -109,6 +109,7 @@ extract_layer <- function(subplot_aes, env) {
 }
         
     
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("x", "y"))
 
 
 # Assigns subplot membership to rows

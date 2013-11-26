@@ -1,3 +1,4 @@
+%\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{User manual}
 \documentclass{article}
 \begin{document}

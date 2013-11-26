@@ -54,7 +54,7 @@ setMethod("show", signature(object = "ggsubplot"), function(object){
 
 #' @S3method print ggsubplot
 print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
-  ggplot2:::set_last_plot(x)
+  ("ggplot2" %:::% "set_last_plot")(x)
     if (newpage) 
         grid::grid.newpage()
     data <- ggsubplot_build(x)

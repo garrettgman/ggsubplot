@@ -64,7 +64,7 @@ plyr_aesthetics <- function (., data, plot) {
   if (!is.null(.$geom_params$group)) {
     aesthetics["group"] <- .$geom_params$group
   }
-  ggplot2:::scales_add_defaults(plot$scales, data, aesthetics, plot$plot_env)
+  ("ggplot2" %:::% "scales_add_defaults")(plot$scales, data, aesthetics, plot$plot_env)
   
   if (!is.null(aesthetics$group)) {
     data$group <- unlist(eval(aesthetics$group, envir = data, 
