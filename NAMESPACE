@@ -1,5 +1,4 @@
 S3method(layer_clone,list)
-S3method(layer_clone,proto)
 S3method(layer_clone,sp_layer)
 S3method(ply_aes,list)
 S3method(ply_aes,proto)

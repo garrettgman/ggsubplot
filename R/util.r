@@ -55,14 +55,16 @@ layer_clone <- function(layer) {
   UseMethod("layer_clone")
 }
 
-#' @S3method layer_clone proto
-layer_clone.proto <- function(layer) {
-  ("ggplot2" %:::% "plot_clone")(ggplot2::ggplot() + layer)$layers[[1]]
-}
-
 #' @S3method layer_clone sp_layer
 layer_clone.sp_layer <- function(layer) {
-  sp_layer(("ggplot2" %:::% "plot_clone")(ggplot2::ggplot() + layer)$layers[[1]])
+  f <- get("plot_clone", envir = asNamespace("ggplot2"))
+  sp_layer(f(ggplot2::ggplot() + layer)$layers[[1]])
+}
+
+#' @S3method layer_clone proto
+layer_clone.proto <- function(layer) {
+  f <- get("plot_clone", envir = asNamespace("ggplot2"))
+  f(ggplot2::ggplot() + layer)$layers[[1]]
 }
 
 #' @S3method layer_clone list
@@ -91,5 +93,6 @@ my_cumsum <- function(vec) {
 }
 
 "%:::%" <- function(p, f) {
+  message(p, ":::", f)
   get(f, envir = asNamespace(p))
 }

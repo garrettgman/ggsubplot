@@ -16,7 +16,8 @@ ggsubplot_build <- function(plot1){
   	stop("ggsubplots do not support facetting", call. = FALSE)
   }
 
-  plot <- ("ggplot2" %:::% "plot_clone")(plot1)
+  f <- get("plot_clone", envir = asNamespace("ggplot2"))
+  plot <- f(plot1)
   layers <- plot$layers
   layers <- propogate_data(layers, plot$data)
 	
@@ -114,7 +115,8 @@ ggsubplot_build <- function(plot1){
   build$plot$layers <- layers
   build$plot$options$labels <- labels
 
-  ("ggplot2" %:::% "set_last_plot")(plot1)
+  f <- get("set_last_plot", envir = asNamespace("ggplot2"))
+  f(plot1)
   
   build
 }
