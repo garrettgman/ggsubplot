@@ -43,15 +43,6 @@ size, linetype, weight, and alpha.
 }
 \examples{
 library(ggplot2)
-
-one_nasa <- nasa[nasa$id == "1-1", ]
-ggplot(one_nasa) +
-  geom_star(
-    aes(x = 0, y = 0, r = surftemp, angle = date, fill = mean(temperature)),
-    r.zero = FALSE
- )
-
-## Stars in an embedded plot
 ggplot(nasa) +
 #    borders("state") +
   geom_subplot(aes(long, lat, group = id, subplot =

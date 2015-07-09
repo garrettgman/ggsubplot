@@ -40,17 +40,11 @@ geom_coxcomb understands the following aesthetics: x, y, colour, fill, size,
 linetype, weight, and alpha.
 }
 \examples{
-\dontrun{## A single coxcomb
-ggplot(casualties) +
-geom_coxcomb(aes(angle = month, fill = month))
-
 ## Coxcombs in an embedded plot
 ggplot(casualties) +
-map_afghanistan +
-geom_subplot2d(aes(lon, lat,
-subplot = geom_coxcomb(aes(angle = month, fill = month))),
-bins = c(15, 12), ref = NULL) +
-coord_map()
-}
+  # map_afghanistan +
+  geom_subplot2d(aes(lon, lat,
+    subplot = geom_coxcomb(aes(angle = month, fill = month))), bins = c(15, 12), ref = NULL) +
+  coord_quickmap()
 }
 
