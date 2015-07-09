@@ -1,5 +1,5 @@
 Package: ggsubplot
-Version: 0.3.1
+Version: 0.3.1.9000
 Title: Explore complex data by embedding subplots within
     plots.
 Description: ggsubplot makes it easy to embed customized
