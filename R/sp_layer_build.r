@@ -76,6 +76,7 @@ sp_layer_build <- function(layer, plot) {
 #' @param df A data frame. Should be the output of a facetted plot built with 
 #' \code{\link[ggplot2]{ggplot_build}}
 #' @return A modified data frame. See Details.
+#' @noRd
 unpanel <- function(df) {
   if (!is.null(df$group)) {
     df$group <- interaction(df$group, df$PANEL)
@@ -85,27 +86,15 @@ unpanel <- function(df) {
   df
 }
 
-#' find x scale
-#' 
-#' which_x picks out the scale that controls x from a list of scales
-#' @param scales A list of ggplot2 scales
 which_x <- function(scales) {
   vars <-  names_scales(scales)
   which(vars == "x")
 }
 
-#' find y scale
-#' 
-#' which_y picks out the scale that controls y from a list of scales
-#' @param scales A list of ggplot2 scales
 which_y <- function(scales) {
   vars <- names_scales(scales)
   which(vars == "y")
 }
 
-#' Returns the first aes of a scale, to use as an identifier for the scale
-#' @param scales a list of ggplot2 scales
 names_scales <- function(scales) {
   unlist(lapply(scales, function(s) s$aesthetics[[1]]))
-}	
-	
