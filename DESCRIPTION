@@ -38,7 +38,6 @@ Collate:
     'package.r'
     'ply_aes.r'
     'ref_box.r'
-    'rel-class.r'
     'rescalers.r'
     'sp_layer-class.r'
     'sp_layer_build.r'
