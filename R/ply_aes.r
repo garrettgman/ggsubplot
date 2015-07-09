@@ -17,7 +17,7 @@
 #' respect.
 #' @param .vars variable names to group by (optional), stored as a character
 #' string
-#' @noRd
+#' @export
 ply_aes <- function(layer, .vars = NULL) {
   UseMethod("ply_aes")
 }

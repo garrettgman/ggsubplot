@@ -40,6 +40,7 @@ geom_coxcomb understands the following aesthetics: x, y, colour, fill, size,
 linetype, weight, and alpha.
 }
 \examples{
+library(ggplot2)
 ## Coxcombs in an embedded plot
 ggplot(casualties) +
   # map_afghanistan +
