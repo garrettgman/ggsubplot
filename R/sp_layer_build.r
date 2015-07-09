@@ -15,8 +15,8 @@
 #' plot
 #' @noRd
 sp_layer_build <- function(layer, plot) {
-  minimal <- ggplot2:::plot_clone(plot)
-  minimal$data <- ggplot2::waiver()
+  minimal <- getInternal("ggplot2", "plot_clone")(plot)
+  minimal$data <- waiver()
   minimal$scales$scales[which_x(minimal$scales$scales)] <- NULL
   minimal$scales$scales[which_y(minimal$scales$scales)] <- NULL
   layer <- layer_clone(layer)
@@ -34,7 +34,7 @@ sp_layer_build <- function(layer, plot) {
   xspan <- range(unlist(data[names(data) %in% .x_aes]), na.rm = TRUE)
   yspan <- range(unlist(data[names(data) %in% .y_aes]), na.rm = TRUE)
   minimal$layers <- list(
-    geom_blank(aes(xspan, yspan), data = data.frame(xspan, yspan))
+    ggplot2::geom_blank(ggplot2::aes(xspan, yspan), data = data.frame(xspan, yspan))
   )
   panel <- ggplot2::ggplot_build(minimal)$panel
 

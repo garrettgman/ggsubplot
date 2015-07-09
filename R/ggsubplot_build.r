@@ -64,7 +64,7 @@ ggsubplot_build <- function(plot1){
     na.rm = TRUE)
   minimal <- plot
   minimal$data <- ggplot2::waiver()
-  minimal$layers <- list(geom_blank(aes(xspan, yspan),
+  minimal$layers <- list(ggplot2::geom_blank(ggplot2::aes(xspan, yspan),
     data = data.frame(xspan, yspan)))
   panel <- ggplot2::ggplot_build(minimal)$panel
 

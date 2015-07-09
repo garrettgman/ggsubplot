@@ -1,2 +1,3 @@
-#' @import ggplot2 plyr proto grid scales stringr methods
+#' @import proto grid methods
+#' @importFrom ggplot2 rel waiver
 NULL

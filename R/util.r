@@ -84,7 +84,6 @@ my_cumsum <- function(vec) {
   cumsum(vec)
 }
 
-"%:::%" <- function(p, f) {
-  message(p, ":::", f)
+getInternal <- function(p, f) {
   get(f, envir = asNamespace(p))
 }

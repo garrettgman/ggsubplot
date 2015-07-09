@@ -22,7 +22,6 @@ Imports:
     proto,
     grid,
     scales,
-    stringr,
     methods
 Collate:
     'aesply.r'

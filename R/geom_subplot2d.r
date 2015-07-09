@@ -199,7 +199,7 @@ interval_breaks <- function(bins = 10, binwidth = NULL, origin = NULL, range = N
     }
 
     if (is.null(origin)) {
-      breaks <- fullseq(range, binwidth)
+      breaks <- scales::fullseq(range, binwidth)
     } else {
       breaks <- seq(origin, max(range) + binwidth, binwidth)
     }
