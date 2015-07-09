@@ -119,13 +119,6 @@ setMethod("+", signature(e1 = "ggsubplot", e2 = "sp_layer"),
 	}
 )
 
-setGeneric("ls")
-
-setMethod("ls", signature(name = "sp_layer"),
-	function(name, pos = -1, envir = as.environment(pos), all.names = FALSE, pattern) {
-		ls(slot(name, "layer"), all.names)
-})
-
 #' Create a sp_layer object
 #'
 #' sp_layer gives a ggplot2 layer object the S4 class sp_layer, see

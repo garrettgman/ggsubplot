@@ -10,28 +10,6 @@ check_ggsubplot <- function(object) {
 		errors
 }
 
-#' list S4 class
-#'
-#' @name list-class
-#' @aliases list
-#'
-#' @exportClass list
-NULL
-
-#' ggplot S4 class
-#'
-#' @name ggplot-class
-#' @aliases ggplot
-#'
-#' @exportClass ggplot
-setOldClass(c("ggplot", "list"))
-
-#' gg S4 class
-#'
-#' @name gg-class
-#' @aliases gg
-#'
-#' @exportClass gg
 setOldClass(c("gg", "ggplot"))
 
 #' ggsubplot class
@@ -45,7 +23,10 @@ setOldClass(c("gg", "ggplot"))
 #' @aliases show,ggsubplot-method
 #' @aliases print,ggsubplot-method
 #' @aliases show,ggsubplot-method
-setClass("ggsubplot", contains = c("gg", "ggplot"), validity = check_ggsubplot)
+setClass("ggsubplot",
+  contains = "gg",
+  validity = check_ggsubplot
+)
 
 #' @export
 setMethod("show", signature(object = "ggsubplot"), function(object){
