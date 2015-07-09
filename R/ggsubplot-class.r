@@ -1,27 +1,3 @@
-check_ggsubplot <- function(object) {
-	errors <- character()
-	if (!is(object@.Data, "ggplot") & !is(object@.Data, "gg")) {
-		msg <- "ggsubplot must be a gg or ggplot object."
-		errors <- c(errors, msg)
-	}
-	if (length(errors) == 0)
-		TRUE
-	else
-		errors
-}
-
-setOldClass(c("gg", "ggplot"))
-
-#' ggsubplot class
-#'
-#' a ggsubplot object is a ggplot object that has been extended to include methods
-#' for embedding subplots when plotting.
-#'
-#' @export ggsubplot
-setClass("ggsubplot",
-  contains = "gg",
-  validity = check_ggsubplot
-)
 
 #' @export
 #' @rdname ggsubplot-class

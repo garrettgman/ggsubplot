@@ -23,21 +23,3 @@ Imports:
     grid,
     scales,
     methods
-Collate:
-    'aesply.r'
-    'data.r'
-    'geom_coxcomb.r'
-    'geom_freqstar.r'
-    'geom_star.r'
-    'geom_subplot.r'
-    'geom_subplot2d.r'
-    'ggsubplot-class.r'
-    'ggsubplot_build.r'
-    'merge_overlaps.r'
-    'package.r'
-    'ply_aes.r'
-    'ref_box.r'
-    'rescalers.r'
-    'sp_layer-class.r'
-    'sp_layer_build.r'
-    'util.r'

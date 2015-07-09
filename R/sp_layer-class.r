@@ -1,34 +1,3 @@
-#' @include ggsubplot-class.r
-NULL
-
-check_sp_layer <- function(object) {
-	errors <- character()
-	if (!proto::is.proto(object@layer)) {
-		msg <- "sp_layer must be a proto object."
-		errors <- c(errors, msg)
-	}
-  if (!("embed" %in% ls(object@layer))) {
-    msg <- "sp_layer should contain an `embed' variable. Try building with geom_subplot() or geom_subplot2d()"
-    errors <- c(errors, msg)
-  }
-	if (length(errors) == 0)
-		TRUE
-	else
-		errors
-}
-
-setOldClass(c("proto", "environment"))
-
-#' sp_layer class
-#'
-#' sp_layers are layers made with ggsubplot methods. They are equivalent to the
-#' layers made by ggplot2 functions in all ways except that they contain extra
-#' information that is used to divide the data into subplots and locate those
-#' subplots witihn the layer when plotting.
-#'
-#' @export
-setClass("sp_layer", representation(layer = "proto"), validity = check_sp_layer)
-
 #' @export
 #' @rdname sp_layer-class
 setMethod("show", signature(object = "sp_layer"), function(object) {
