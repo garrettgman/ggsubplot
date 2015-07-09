@@ -1,12 +1,10 @@
 Package: ggsubplot
 Version: 0.3.1.9000
-Title: Explore complex data by embedding subplots within
-    plots.
-Description: ggsubplot makes it easy to embed customized
-    subplots within larger graphics. Subplots may be used
-    as a geom to explore interaction effects, spatial data,
-    and hierarchical data. Subplots can also be used to
-    explore big data without overplotting.
+Title: Explore Complex Data by Embedding Subplots
+Description: ggsubplot makes it easy to embed customized subplots within larger
+    graphics. Subplots may be used as a geom to explore interaction effects,
+    spatial data, and hierarchical data. Subplots can also be used to explore
+    big data without overplotting.
 Authors@R: c(
     person("Garrett", "Grolemund", , "garret@rstudio.com", c("aut", "cre")),
     person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut")),
