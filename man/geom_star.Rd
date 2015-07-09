@@ -29,8 +29,8 @@ If TRUE, silently removes missing variables.}
 FALSE, origin corresponds to lowest value of r.}
 
 \item{...}{other arguments passed on to \code{\link[ggplot2]{layer}}. This
-can include aesthetics whose values you want to set, not map. See
-\code{\link[ggplot2]{layer}} for more details.}
+  can include aesthetics whose values you want to set, not map. See
+  \code{\link[ggplot2]{layer}} for more details.}
 }
 \description{
 geom_star draws the type of glyph commonly called a star plot, radar plot,
@@ -38,23 +38,28 @@ or polar plot.
 }
 \section{Aesthetics}{
 
-geom_star understands the following aesthetics: x, y, colour, fill, size,
-linetype, weight, and alpha.
+\code{geom_star} understands the following aesthetics: x, y, colour, fill,
+size, linetype, weight, and alpha.
 }
 \examples{
-\dontrun{## A single star
+library(ggplot2)
+
 one_nasa <- nasa[nasa$id == "1-1", ]
 ggplot(one_nasa) +
-geom_star(aes(x = 0, y = 0, r = surftemp, angle = date,
-fill = mean(temperature)), r.zero = FALSE)
+  geom_star(
+    aes(x = 0, y = 0, r = surftemp, angle = date, fill = mean(temperature)),
+    r.zero = FALSE
+ )
 
 ## Stars in an embedded plot
 ggplot(nasa) +
-map_americas +
-geom_subplot(aes(long, lat, group = id,
-subplot = geom_star(aes(x = 0, y = 0, r = surftemp,
-angle = date, fill = mean(surftemp)), r.zero = FALSE))) +
-coord_map()
-}
+#    borders("state") +
+  geom_subplot(aes(long, lat, group = id, subplot =
+    geom_star(
+      aes(x = 0, y = 0, r = surftemp, angle = date, fill = mean(surftemp)),
+      r.zero = FALSE
+   ))
+  ) +
+  coord_quickmap()
 }
 

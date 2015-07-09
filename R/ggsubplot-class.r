@@ -17,23 +17,20 @@ setOldClass(c("gg", "ggplot"))
 #' a ggsubplot object is a ggplot object that has been extended to include methods
 #' for embedding subplots when plotting.
 #'
-#' @name ggsubplot-class
-#' @rdname ggsubplot-class
-#' @exportClass ggsubplot
-#' @aliases show,ggsubplot-method
-#' @aliases print,ggsubplot-method
-#' @aliases show,ggsubplot-method
+#' @export ggsubplot
 setClass("ggsubplot",
   contains = "gg",
   validity = check_ggsubplot
 )
 
 #' @export
+#' @rdname ggsubplot-class
 setMethod("show", signature(object = "ggsubplot"), function(object){
 	print(object)
 })
 
 #' @export
+#' @rdname ggsubplot-class
 print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
   f <- get("set_last_plot", envir = asNamespace("ggplot2"))
   f(x)

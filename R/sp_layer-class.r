@@ -17,20 +17,6 @@ check_sp_layer <- function(object) {
 		errors
 }
 
-#' environment S4 class
-#'
-#' @name environment-class
-#' @aliases environment
-#'
-#' @exportClass environment
-NULL
-
-#' proto S4 class
-#'
-#' @name proto-class
-#' @aliases proto
-#'
-#' @exportClass proto
 setOldClass(c("proto", "environment"))
 
 #' sp_layer class
@@ -40,79 +26,74 @@ setOldClass(c("proto", "environment"))
 #' information that is used to divide the data into subplots and locate those
 #' subplots witihn the layer when plotting.
 #'
-#' @name sp_layer-class
-#' @rdname sp_layer-class
-#' @exportClass sp_layer
-#' @aliases show,sp_layer-method
-#' @aliases c,sp_layer-method
-#' @aliases rep,sp_layer-method
-#' @aliases ls,sp_layer-method
-#' @aliases [,sp_layer-method
-#' @aliases [<-,sp_layer-method
-#' @aliases $,sp_layer-method
-#' @aliases $<-,sp_layer-method
-#' @aliases +,ggplot,sp_layer-method
-#' @aliases +,gg,sp_layer-method
-#' @aliases +,ggsubplot,sp_layer-method
-#' @aliases ggtransform,sp_layer-method
+#' @export
 setClass("sp_layer", representation(layer = "proto"), validity = check_sp_layer)
 
 #' @export
+#' @rdname sp_layer-class
 setMethod("show", signature(object = "sp_layer"), function(object) {
 	print(object@layer)
 })
 
 #' @export
+#' @rdname sp_layer-class
 setMethod("c", signature(x = "sp_layer"), function(x, ...){
 	# c(get_layer(x), unlist(lapply(list(...), get_layer)))
 	stop("object of type 'sp_layer' is not subsettable")
 })
 
 #' @export
+#' @rdname sp_layer-class
 setMethod("rep", signature(x = "sp_layer"), function(x, ...){
 	stop("object of type 'sp_layer' is not subsettable")
 })
 
-#' @exportMethod "["
+#' @export
+#' @rdname sp_layer-class
 setMethod("[", signature(x = "sp_layer"),
 	function(x, i, j, ..., drop = TRUE) {
     	new("sp_layer", layer = x@layer[i])
 	}
 )
 
-#' @exportMethod "[<-"
+#' @export
+#' @rdname sp_layer-class
 setMethod("[<-", signature(x = "sp_layer"), function(x, i, j, ..., value) {
   	x@layer[i] <- value
 	x
 })
 
-
-#' @exportMethod "$"
+#' @export
+#' @rdname sp_layer-class
 setMethod("$", signature(x = "sp_layer"), function(x, name) {
 	slot(x, "layer")[[name]]
 })
 
-#' @exportMethod "$<-"
+#' @export
+#' @rdname sp_layer-class
 setMethod("$<-", signature(x = "sp_layer"), function(x, name, value) {
 	slot(x, "layer")[[name]] <- value
 	x
 })
 
-#' @exportMethod "+"
+#' @export
+#' @rdname sp_layer-class
 setMethod("+", signature(e1 = "ggplot", e2 = "sp_layer"),
 	function(e1, e2) {
 		ggsubplot(e1 + e2@layer)
 	}
 )
 
-#' @exportMethod "+"
+#' @export
+#' @rdname sp_layer-class
 setMethod("+", signature(e1 = "gg", e2 = "sp_layer"),
   function(e1, e2) {
     ggsubplot(e1 + e2@layer)
   }
 )
 
-#' @exportMethod "+"
+#' @export
+#' @rdname sp_layer-class
 setMethod("+", signature(e1 = "ggsubplot", e2 = "sp_layer"),
 	function(e1, e2) {
 		ggsubplot(e1@.Data + e2@layer)
@@ -127,7 +108,7 @@ setMethod("+", signature(e1 = "ggsubplot", e2 = "sp_layer"),
 #' variable before being given the class 'sp_layer.' See the function bodies of
 #' \code{\link{geom_subplot}} and \code{\link{geom_subplot2d}} for examples.
 #'
-#' @export sp_layer
+#' @noRd
 #' @param layer a proto object that can be used as a layer by the
 #' \code{\link[ggplot2]{ggplot2}} package (i.e, ggplot() + layer should return a
 #' graph).
@@ -135,11 +116,6 @@ sp_layer <- function(layer) {
 	new("sp_layer", layer = layer)
 }
 
-#' Is an object (functionally) a sp_layer?
-#'
-#' Tests whether an object is or ever was a sp_layer.
-#' @param x an R object
-#' @return logical
 is.sp_layer <- function(x) {
   "embed" %in% ls(x)
 }

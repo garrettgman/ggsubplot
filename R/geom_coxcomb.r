@@ -167,7 +167,7 @@ GeomCoxcomb <- proto::proto(ggplot2:::Geom, {
 #' @keywords internal
 #' @param mapping an aesthetic mapping, usually created with
 #' \code{\link[ggplot2]{aes}}
-#' @export
+#' @noRd
 coxcomb_sections <- function(mapping) {
   sections <- mapping[c("alpha", "fill", "colour")]
   sections <- plyr::compact(sections)
@@ -181,7 +181,7 @@ coxcomb_sections <- function(mapping) {
 #' @keywords internal
 #' @param vec a vector of angles in radians
 #' \code{\link[ggplot2]{aes}}
-#' @export
+#' @noRd
 zero_wrap <- function(vec){
   vec[vec > 6.2831] <- 0
   vec

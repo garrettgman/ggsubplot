@@ -3,8 +3,14 @@
 \docType{class}
 \name{ggsubplot-class}
 \alias{ggsubplot-class}
+\alias{print.ggsubplot}
 \alias{show,ggsubplot-method}
 \title{ggsubplot class}
+\usage{
+\S4method{show}{ggsubplot}(object)
+
+\method{print}{ggsubplot}(x, newpage = is.null(vp), vp = NULL, ...)
+}
 \description{
 a ggsubplot object is a ggplot object that has been extended to include methods
 for embedding subplots when plotting.

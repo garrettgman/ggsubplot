@@ -9,7 +9,7 @@
 #' @param expr an \code{\link{expression}} or \code{\link{call}} from which
 #' names are to be extracted
 #' @return character
-#' @export
+#' @noRd
 first_name <- function(expr) {
   names <- all.names(expr)
   names <- names[names != "["]
@@ -24,7 +24,7 @@ first_name <- function(expr) {
 #'
 #' @keywords internal
 #' @param data a data frame
-#' @export
+#' @noRd
 get_xs <- function(data) {
   names(data)[names(data) %in% .x_aes]
 }
@@ -35,7 +35,7 @@ get_xs <- function(data) {
 #'
 #' @keywords internal
 #' @param data a data frame
-#' @export
+#' @noRd
 get_ys <- function(data) {
   names(data)[names(data) %in% .y_aes]
 }
@@ -50,7 +50,7 @@ get_ys <- function(data) {
 #' @param layer a ggplot2 layer object, a glayer object, or a list of such
 #' objects
 #' @return a ggplot2 layer object, a glayer object, or a list of such objects
-#' @export
+#' @noRd
 layer_clone <- function(layer) {
   UseMethod("layer_clone")
 }
@@ -72,14 +72,6 @@ layer_clone.list <- function(layer) {
   lapply(layer, layer_clone)
 }
 
-#' Remove NULL objects from a list
-#'
-#' null.omit removes the NULL elements from a list and returns the remaining
-#' objects as a more concise list.
-#'
-#' @keywords internal
-#' @param lst a list
-#' @export
 null_omit <- function(lst) {
   if (is.null(lst)) {
     return(NULL)

@@ -2,9 +2,39 @@
 % Please edit documentation in R/sp_layer-class.r
 \docType{class}
 \name{sp_layer-class}
+\alias{$,sp_layer-method}
+\alias{$<-,sp_layer-method}
+\alias{+,gg,sp_layer-method}
+\alias{+,ggplot,sp_layer-method}
+\alias{+,ggsubplot,sp_layer-method}
+\alias{[,sp_layer-method}
+\alias{[<-,sp_layer-method}
+\alias{c,sp_layer-method}
+\alias{rep,sp_layer-method}
 \alias{show,sp_layer-method}
 \alias{sp_layer-class}
 \title{sp_layer class}
+\usage{
+\S4method{show}{sp_layer}(object)
+
+\S4method{c}{sp_layer}(x, ..., recursive = FALSE)
+
+\S4method{rep}{sp_layer}(x, ...)
+
+\S4method{[}{sp_layer}(x, i, j, ..., drop = TRUE)
+
+\S4method{[}{sp_layer}(x, i, j, ...) <- value
+
+\S4method{$}{sp_layer}(x, name)
+
+\S4method{$}{sp_layer}(x, name) <- value
+
+\S4method{+}{ggplot,sp_layer}(e1, e2)
+
+\S4method{+}{gg,sp_layer}(e1, e2)
+
+\S4method{+}{ggsubplot,sp_layer}(e1, e2)
+}
 \description{
 sp_layers are layers made with ggsubplot methods. They are equivalent to the
 layers made by ggplot2 functions in all ways except that they contain extra
