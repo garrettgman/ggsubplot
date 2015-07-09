@@ -39,6 +39,6 @@ print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
 #' @param ggplot a gg or ggplot object
 #' @export ggsubplot
 ggsubplot <- function(ggplot) {
-	new("ggsubplot", .Data = ggplot)
+	new("ggsubplot", ggplot)
 }
 

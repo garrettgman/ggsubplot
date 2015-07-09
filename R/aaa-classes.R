@@ -1,23 +1,6 @@
 setOldClass(c("gg", "ggplot"))
 setOldClass(c("proto", "environment"))
 
-check_sp_layer <- function(object) {
-  errors <- character()
-  if (!proto::is.proto(object@layer)) {
-    msg <- "sp_layer must be a proto object."
-    errors <- c(errors, msg)
-  }
-  if (!("embed" %in% ls(object@layer))) {
-    msg <- "sp_layer should contain an `embed' variable. Try building with geom_subplot() or geom_subplot2d()"
-    errors <- c(errors, msg)
-  }
-  if (length(errors) == 0)
-    TRUE
-  else
-    errors
-}
-
-
 #' sp_layer class
 #'
 #' sp_layers are layers made with ggsubplot methods. They are equivalent to the
@@ -27,20 +10,7 @@ check_sp_layer <- function(object) {
 #'
 #' @export
 #' @keywords internal
-setClass("sp_layer", representation(layer = "proto"), validity = check_sp_layer)
-
-
-check_ggsubplot <- function(object) {
-  errors <- character()
-  if (!is(object@.Data, "ggplot") & !is(object@.Data, "gg")) {
-    msg <- "ggsubplot must be a gg or ggplot object."
-    errors <- c(errors, msg)
-  }
-  if (length(errors) == 0)
-    TRUE
-  else
-    errors
-}
+setClass("sp_layer", slots = list(layer = "proto"))
 
 #' ggsubplot class
 #'
@@ -49,7 +19,4 @@ check_ggsubplot <- function(object) {
 #'
 #' @export ggsubplot
 #' @keywords internal
-setClass("ggsubplot",
-  contains = "gg",
-  validity = check_ggsubplot
-)
+setClass("ggsubplot", contains = "gg")
