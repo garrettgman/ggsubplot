@@ -4,14 +4,14 @@ check_ggsubplot <- function(object) {
 		msg <- "ggsubplot must be a gg or ggplot object."
 		errors <- c(errors, msg)
 	}
-	if (length(errors) == 0) 
+	if (length(errors) == 0)
 		TRUE
 	else
 		errors
 }
 
 #' list S4 class
-#' 
+#'
 #' @name list-class
 #' @aliases list
 #'
@@ -19,7 +19,7 @@ check_ggsubplot <- function(object) {
 NULL
 
 #' ggplot S4 class
-#' 
+#'
 #' @name ggplot-class
 #' @aliases ggplot
 #'
@@ -27,7 +27,7 @@ NULL
 setOldClass(c("ggplot", "list"))
 
 #' gg S4 class
-#' 
+#'
 #' @name gg-class
 #' @aliases gg
 #'
@@ -36,8 +36,8 @@ setOldClass(c("gg", "ggplot"))
 
 #' ggsubplot class
 #'
-#' a ggsubplot object is a ggplot object that has been extended to include methods 
-#' for embedding subplots when plotting. 
+#' a ggsubplot object is a ggplot object that has been extended to include methods
+#' for embedding subplots when plotting.
 #'
 #' @name ggsubplot-class
 #' @rdname ggsubplot-class
@@ -52,11 +52,11 @@ setMethod("show", signature(object = "ggsubplot"), function(object){
 	print(object)
 })
 
-#' @S3method print ggsubplot
+#' @export
 print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
   f <- get("set_last_plot", envir = asNamespace("ggplot2"))
   f(x)
-    if (newpage) 
+    if (newpage)
         grid::grid.newpage()
     data <- ggsubplot_build(x)
     gtable <- ggplot2::ggplot_gtable(data)
@@ -64,7 +64,7 @@ print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
         grid::grid.draw(gtable)
     }
     else {
-        if (is.character(vp)) 
+        if (is.character(vp))
             grid::seekViewport(vp)
         else grid::pushViewport(vp)
         grid::grid.draw(gtable)
@@ -75,13 +75,13 @@ print.ggsubplot <- function(x, newpage = is.null(vp), vp = NULL, ...) {
 
 
 #' Create a ggsubplot object
-#' 
-#' glyph_plot gives a ggplot object the S4 class `ggsubplot', see 
-#' \code{\link{ggsubplot-class}}. ggsubplot denotes ggplot objects that contain 
-#' extra information to be used to embed subplots when plotting. ggsubplot 
-#' objects have similar, but different print and build methods than ggplot2 
+#'
+#' glyph_plot gives a ggplot object the S4 class `ggsubplot', see
+#' \code{\link{ggsubplot-class}}. ggsubplot denotes ggplot objects that contain
+#' extra information to be used to embed subplots when plotting. ggsubplot
+#' objects have similar, but different print and build methods than ggplot2
 #' objects.
-#' 
+#'
 #' @param ggplot a gg or ggplot object
 #' @export ggsubplot
 ggsubplot <- function(ggplot) {

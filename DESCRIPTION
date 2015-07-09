@@ -19,14 +19,15 @@ Imports:
     proto,
     grid,
     scales,
-    stringr
+    stringr,
+    methods
 Depends:
-    methods,
     R (>= 2.15)
 Collate:
     'aesply.r'
     'data.r'
     'geom_coxcomb.r'
+    'geom_freqstar.r'
     'geom_star.r'
     'geom_subplot.r'
     'geom_subplot2d.r'
@@ -41,4 +42,3 @@ Collate:
     'sp_layer-class.r'
     'sp_layer_build.r'
     'util.r'
-    'geom_freqstar.r'
