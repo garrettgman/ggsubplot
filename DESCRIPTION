@@ -1,18 +1,23 @@
 Package: ggsubplot
-Maintainer: Garrett Grolemund <garrett@rstudio.com>
-License: GPL
+Version: 0.3.1
 Title: Explore complex data by embedding subplots within
     plots.
-LazyData: true
-Type: Package
-Author: Garrett Grolemund <garrett@rstudio.com>, Hadley
-    Wickham <h.wickham@gmail.com>
 Description: ggsubplot makes it easy to embed customized
     subplots within larger graphics. Subplots may be used
     as a geom to explore interaction effects, spatial data,
     and hierarchical data. Subplots can also be used to
     explore big data without overplotting.
-Version: 0.3.1
+Authors@R: c(
+    person("Garrett", "Grolemund", , "garret@rstudio.com", c("aut", "cre")),
+    person("Hadley", "Wickham", , "hadley@rstudio.com", c("aut")),
+    person("RStudio", role = "cph")
+    )
+URL: https://github.com/garrettgman/ggsubplot
+BugReports: https://github.com/garrettgman/ggsubplot/issues
+License: GPL (>= 2)
+LazyData: true
+Depends:
+    R (>= 2.15)
 Imports:
     ggplot2,
     plyr,
@@ -21,8 +26,6 @@ Imports:
     scales,
     stringr,
     methods
-Depends:
-    R (>= 2.15)
 Collate:
     'aesply.r'
     'data.r'
